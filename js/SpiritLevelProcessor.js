@@ -50,10 +50,33 @@ function SpiritLevelProcessor()
 
         window.addEventListener("devicemotion", handleMotion);
     }
+    
+    var xbuffer = [];
+    var ybuffer = [];
+    var zbuffer = [];
 
     function handleMotion(event)
     {
         // This function handles the new incoming values from the accelerometer
+        
+        var x = event.accelerationIncludingGravity.x;
+        var y = event.accelerationIncludingGravity.y;
+        var z = event.accelerationIncludingGravity.z;
+        
+        var avgx = movingAverage(xbuffer, x);
+        var avgy = movingAverage(ybuffer, y);
+        var avgz = movingAverage(zbuffer, z);
+        
+        var avgx_rounded = Math.round(avgx * 100) / 100;
+        var avgy_rounded = Math.round(avgy * 100) / 100;
+        var avgz_rounded = Math.round(avgz * 100) / 100;
+        
+        //Push rounded values to message area
+        target = document.getElementById("message-area");
+        target.innerHTML = avgx_rounded + ", " + avgy_rounded + ", " + avgz_rounded;
+        
+        
+        
     }
 
     function movingAverage(buffer, newValue)
@@ -69,6 +92,22 @@ function SpiritLevelProcessor()
 
         // Output: filteredValue
         //      This function should return the result of the moving average filter
+        
+        
+        var bufferlength = 20;
+        
+        if (buffer.length > bufferlength) {
+            buffer.splice(0, 1);
+            buffer.push(newValue);
+        } else {
+            buffer.push(newValue);
+        }
+        
+        var sum = buffer.reduce(function(a, b) { return a + b; });
+        var avg = sum / buffer.length;
+        
+        return avg;
+        
     }
 
     function displayAngle(x,y,z)
