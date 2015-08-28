@@ -50,6 +50,8 @@ function SpiritLevelProcessor()
     messageTarget = document.getElementById("message-area");
     
     var freezeval = false;
+    
+    //comment
 
     function handleMotion(event)
     {
