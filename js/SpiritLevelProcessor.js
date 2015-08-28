@@ -69,7 +69,7 @@ function SpiritLevelProcessor()
         target = document.getElementById("message-area");
         target.innerHTML = avgx_rounded + ", " + avgy_rounded + ", " + avgz_rounded + "<br>";
         
-    displayAngle(avgx,avgy,avgz);   
+        displayAngle(avgx,avgy,avgz);   
         
         target.innerHTML = "Angle from Z axis: " + angle + "°";
         
