@@ -48,6 +48,8 @@ function SpiritLevelProcessor()
     var zbuffer = [];
     
     var freezeval = false;
+    
+    //comment
 
     function handleMotion(event)
     {
