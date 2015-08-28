@@ -54,6 +54,8 @@ function SpiritLevelProcessor()
     var xbuffer = [];
     var ybuffer = [];
     var zbuffer = [];
+    
+    var freezeval = false;
 
     function handleMotion(event)
     {
@@ -67,7 +69,20 @@ function SpiritLevelProcessor()
         var avgy = movingAverage(ybuffer, y);
         var avgz = movingAverage(zbuffer, z);
         
+<<<<<<< HEAD
+=======
+        var avgx_rounded = Math.round(avgx * 100) / 100;
+        var avgy_rounded = Math.round(avgy * 100) / 100;
+        var avgz_rounded = Math.round(avgz * 100) / 100;
         
+        //Push rounded values to message area
+        target = document.getElementById("message-area");
+        target.innerHTML = avgx_rounded + ", " + avgy_rounded + ", " + avgz_rounded + "<br>";
+        
+    displayAngle(avgx,avgy,avgz);   
+>>>>>>> origin/master
+        
+        target.innerHTML = "Angle from Z axis: " + angle + "°";
         
         //handle translation of bubble
         bodyDimensions = uiController.bodyDimensions();
@@ -113,6 +128,21 @@ function SpiritLevelProcessor()
         //      These values should be the filtered values after the Moving Average for
         //      each of the axes respectively
         
+<<<<<<< HEAD
+=======
+        var xSquared, ySquared, magnitudeXYVector, angle;
+        
+        xSquared = Math.pow(x,2);
+        ySquared = Math.pow(y,2);
+        
+        magnitudeXYVector = Math.sqrt(xSquared + ySquared);
+        
+        angle = atan(magnitudeXYVector/z);
+       
+        return angle;
+        
+        
+>>>>>>> origin/master
         
     }
 
@@ -123,6 +153,17 @@ function SpiritLevelProcessor()
         // This function will trigger when the "Freeze" button is pressed
         // The ID of the button is "freeze-button"
         
+<<<<<<< HEAD
+=======
+        freezeTarget = document.getElementById("freeze-button");
+        if (freezeval === true){
+            freezeval = false;
+            freezeTarget.innerhtml = "Freeze";
+        }else{
+            freezeval = true;
+            freezeTarget.innerhtml = "Unfreeze";
+        }    
+>>>>>>> origin/master
     }
 
     function movingMedian(buffer, newValue)
