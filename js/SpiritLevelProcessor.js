@@ -47,6 +47,8 @@ function SpiritLevelProcessor()
     var ybuffer = [];
     var zbuffer = [];
     
+    messageTarget = document.getElementById("message-area");
+    
     var freezeval = false;
 
     function handleMotion(event)
@@ -67,12 +69,11 @@ function SpiritLevelProcessor()
         
         //Push rounded values to message area
         target = document.getElementById("message-area");
-        target.innerHTML = avgx_rounded + ", " + avgy_rounded + ", " + avgz_rounded + "<br>";
         
-    displayAngle(avgx,avgy,avgz);   
+        var angle = displayAngle(avgx,avgy,avgz);
         
-        target.innerHTML = "Angle from Z axis: " + angle + "°";
-        
+        target.innerHTML = avgx_rounded + ", " + avgy_rounded + ", " + avgz_rounded + "         <br>Angle from Z axis: " + angle + "°"; 
+            
     }
 
     function movingAverage(buffer, newValue)
@@ -122,7 +123,8 @@ function SpiritLevelProcessor()
         
         magnitudeXYVector = Math.sqrt(xSquared + ySquared);
         
-        angle = atan(magnitudeXYVector/z);
+        angle = Math.atan(magnitudeXYVector/z);
+		angle = angle * 180 / 3.14159;
        
         return angle;
         
