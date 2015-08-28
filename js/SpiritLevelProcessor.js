@@ -1,39 +1,44 @@
+Skip to content
+This repository  
+Pull requests
+Issues
+Gist
+ @davossboss
+ Unwatch 4
+  Star 0
+ Fork 0TeamSeventyEight/Project-1
+Tree: f0447fe1bf  Project-1/js/SpiritLevelProcessor.js
+Daniel de Waard 13 minutes ago Display angle
+1 contributor
+RawBlameHistory    174 lines (126 sloc)  5.296 kB
 /****************************************************************************************
 Avaiable functions for usage in the uiController object
 ================================================================
 uiController.bubbleTranslate(x,y, id)
     This function will translate the bubble from the middle of the screen.
     The center of the screen is considered (0,0).
-
     Inputs:
         x,y
         Translates the bubble x px right and y px up. Negative values are accepted
         and translate the bubble in the opposite direction.
-
         id
         ID of bubble that needs to be moved
-
 uiController.bodyDimensions()
     Returns the width and height of the body (without the toolbar)
-
     Return:
         Returns an object with the following fields
         {
             width:      [Returns the width of the body],
             height:     [Returns the width of the body]
         }
-
 ID of HTML elements that are of interest
 ==============================================================
 dark-bubble
     ID of the dark green bubble
-
 pale-bubble
     ID of the pale green bubble
-
 message-area
-    ID of text area at the bottom of the screen, just on top on the "Freeze" button
-
+    ID of text area at the bottom of the screen, just on top on the "Feeze" button
 freeze-button
     ID of the "Freeze" button
 ****************************************************************************************/
@@ -69,8 +74,6 @@ function SpiritLevelProcessor()
         var avgy = movingAverage(ybuffer, y);
         var avgz = movingAverage(zbuffer, z);
         
-<<<<<<< HEAD
-=======
         var avgx_rounded = Math.round(avgx * 100) / 100;
         var avgy_rounded = Math.round(avgy * 100) / 100;
         var avgz_rounded = Math.round(avgz * 100) / 100;
@@ -80,14 +83,9 @@ function SpiritLevelProcessor()
         target.innerHTML = avgx_rounded + ", " + avgy_rounded + ", " + avgz_rounded + "<br>";
         
     displayAngle(avgx,avgy,avgz);   
->>>>>>> origin/master
         
         target.innerHTML = "Angle from Z axis: " + angle + "°";
         
-        //handle translation of bubble
-        bodyDimensions = uiController.bodyDimensions();
-        windowWidth = bodyDimensions.width;
-        windowHeight = bodyDimensions.height;
     }
 
     function movingAverage(buffer, newValue)
@@ -104,6 +102,7 @@ function SpiritLevelProcessor()
         // Output: filteredValue
         //      This function should return the result of the moving average filter
         
+        
         var bufferlength = 20;
         
         if (buffer.length > bufferlength) {
@@ -117,6 +116,7 @@ function SpiritLevelProcessor()
         var avg = sum / buffer.length;
         
         return avg;
+        
     }
 
     function displayAngle(x,y,z)
@@ -128,8 +128,6 @@ function SpiritLevelProcessor()
         //      These values should be the filtered values after the Moving Average for
         //      each of the axes respectively
         
-<<<<<<< HEAD
-=======
         var xSquared, ySquared, magnitudeXYVector, angle;
         
         xSquared = Math.pow(x,2);
@@ -142,7 +140,6 @@ function SpiritLevelProcessor()
         return angle;
         
         
->>>>>>> origin/master
         
     }
 
@@ -153,8 +150,6 @@ function SpiritLevelProcessor()
         // This function will trigger when the "Freeze" button is pressed
         // The ID of the button is "freeze-button"
         
-<<<<<<< HEAD
-=======
         freezeTarget = document.getElementById("freeze-button");
         if (freezeval === true){
             freezeval = false;
@@ -163,7 +158,6 @@ function SpiritLevelProcessor()
             freezeval = true;
             freezeTarget.innerhtml = "Unfreeze";
         }    
->>>>>>> origin/master
     }
 
     function movingMedian(buffer, newValue)
@@ -182,3 +176,5 @@ function SpiritLevelProcessor()
       //      This function should return the result of the moving average filter
     }
 }
+Status API Training Shop Blog About Pricing
+© 2015 GitHub, Inc. Terms Privacy Security Contact Help
