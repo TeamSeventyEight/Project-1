@@ -75,9 +75,11 @@ function SpiritLevelProcessor()
         
         //Push rounded values to message area
         target = document.getElementById("message-area");
-        target.innerHTML = avgx_rounded + ", " + avgy_rounded + ", " + avgz_rounded;
+        target.innerHTML = avgx_rounded + ", " + avgy_rounded + ", " + avgz_rounded + "<br>";
         
+    displayAngle(avgx,avgy,avgz);   
         
+        target.innerHTML = "Angle from Z axis: " + angle + "°";
         
     }
 
@@ -120,6 +122,20 @@ function SpiritLevelProcessor()
         // Input: x,y,z
         //      These values should be the filtered values after the Moving Average for
         //      each of the axes respectively
+        
+        var xSquared, ySquared, magnitudeXYVector, angle;
+        
+        xSquared = Math.pow(x,2);
+        ySquared = Math.pow(y,2);
+        
+        magnitudeXYVector = Math.sqrt(xSquared + ySquared);
+        
+        angle = atan(magnitudeXYVector/z);
+       
+        return angle;
+        
+        
+        
     }
 
     self.freezeClick = function()
