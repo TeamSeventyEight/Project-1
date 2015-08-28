@@ -54,6 +54,7 @@ function SpiritLevelProcessor()
     var xbuffer = [];
     var ybuffer = [];
     var zbuffer = [];
+    
 
     function handleMotion(event)
     {
@@ -126,6 +127,15 @@ function SpiritLevelProcessor()
         // ================================================================
         // This function will trigger when the "Freeze" button is pressed
         // The ID of the button is "freeze-button"
+        
+        freezeTarget = document.getElementById("freeze-button");
+        if (freezeval === true){
+            freezeval = false;
+            freezeTarget.innerhtml = "Freeze";
+        }else{
+            freezeval = true;
+            freezeTarget.innerhtml = "Unfreeze";
+        }    
     }
 
     function movingMedian(buffer, newValue)
