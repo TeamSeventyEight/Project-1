@@ -32,7 +32,7 @@ pale-bubble
     ID of the pale green bubble
 
 message-area
-    ID of text area at the bottom of the screen, just on top on the "Feeze" button
+    ID of text area at the bottom of the screen, just on top on the "Freeze" button
 
 freeze-button
     ID of the "Freeze" button
@@ -67,16 +67,12 @@ function SpiritLevelProcessor()
         var avgy = movingAverage(ybuffer, y);
         var avgz = movingAverage(zbuffer, z);
         
-        var avgx_rounded = Math.round(avgx * 100) / 100;
-        var avgy_rounded = Math.round(avgy * 100) / 100;
-        var avgz_rounded = Math.round(avgz * 100) / 100;
-        
-        //Push rounded values to message area
-        target = document.getElementById("message-area");
-        target.innerHTML = avgx_rounded + ", " + avgy_rounded + ", " + avgz_rounded;
         
         
-        
+        //handle translation of bubble
+        bodyDimensions = uiController.bodyDimensions();
+        windowWidth = bodyDimensions.width;
+        windowHeight = bodyDimensions.height;
     }
 
     function movingAverage(buffer, newValue)
@@ -93,7 +89,6 @@ function SpiritLevelProcessor()
         // Output: filteredValue
         //      This function should return the result of the moving average filter
         
-        
         var bufferlength = 20;
         
         if (buffer.length > bufferlength) {
@@ -107,7 +102,6 @@ function SpiritLevelProcessor()
         var avg = sum / buffer.length;
         
         return avg;
-        
     }
 
     function displayAngle(x,y,z)
@@ -118,6 +112,8 @@ function SpiritLevelProcessor()
         // Input: x,y,z
         //      These values should be the filtered values after the Moving Average for
         //      each of the axes respectively
+        
+        
     }
 
     self.freezeClick = function()
@@ -126,6 +122,7 @@ function SpiritLevelProcessor()
         // ================================================================
         // This function will trigger when the "Freeze" button is pressed
         // The ID of the button is "freeze-button"
+        
     }
 
     function movingMedian(buffer, newValue)
