@@ -137,6 +137,8 @@ function SpiritLevelProcessor()
         // This function will trigger when the "Freeze" button is pressed
         // The ID of the button is "freeze-button"
         
+        console.log("asdf");
+        
         freezeTarget = document.getElementById("freeze-button");
         if (freezeval === true){
             freezeval = false;
