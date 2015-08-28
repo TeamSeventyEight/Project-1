@@ -1,16 +1,3 @@
-Skip to content
-This repository  
-Pull requests
-Issues
-Gist
- @davossboss
- Unwatch 4
-  Star 0
- Fork 0TeamSeventyEight/Project-1
-Tree: f0447fe1bf  Project-1/js/SpiritLevelProcessor.js
-Daniel de Waard 13 minutes ago Display angle
-1 contributor
-RawBlameHistory    174 lines (126 sloc)  5.296 kB
 /****************************************************************************************
 Avaiable functions for usage in the uiController object
 ================================================================
@@ -176,5 +163,3 @@ function SpiritLevelProcessor()
       //      This function should return the result of the moving average filter
     }
 }
-Status API Training Shop Blog About Pricing
-© 2015 GitHub, Inc. Terms Privacy Security Contact Help
