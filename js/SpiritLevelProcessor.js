@@ -69,6 +69,12 @@ function SpiritLevelProcessor()
         
         //Push rounded values to message area
         target = document.getElementById("message-area");
+<<<<<<< HEAD
+=======
+        target.innerHTML = avgx_rounded + ", " + avgy_rounded + ", " + avgz_rounded + "<br>";
+        
+        displayAngle(avgx,avgy,avgz);   
+>>>>>>> origin/master
         
         var angle = displayAngle(avgx,avgy,avgz);
         
@@ -138,6 +144,8 @@ function SpiritLevelProcessor()
         // ================================================================
         // This function will trigger when the "Freeze" button is pressed
         // The ID of the button is "freeze-button"
+        
+        console.log("asdf");
         
         freezeTarget = document.getElementById("freeze-button");
         if (freezeval === true){
